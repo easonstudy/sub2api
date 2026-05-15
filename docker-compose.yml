@@ -183,8 +183,6 @@ services:
       nofile:
         soft: 100000
         hard: 100000
-    ports:
-      - "${REDIS_EXTERNAL_PORT}:6379"  # 左边是宿主机端口，改成 6380 避开 new-api
     volumes:
       # Local directory mapping for easy migration
       - ./postgres_data:/var/lib/postgresql/data
@@ -216,6 +214,8 @@ services:
       nofile:
         soft: 100000
         hard: 100000
+    ports:
+      - "${REDIS_EXTERNAL_PORT}:6379"  # 左边是宿主机端口，改成 6380 避开 new-api
     volumes:
       # Local directory mapping for easy migration
       - ./redis_data:/data
